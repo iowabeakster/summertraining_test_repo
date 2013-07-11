@@ -13,18 +13,18 @@ if len(sys.argv) < 2:
     print "Try it again."
     sys.exit(1)
 
-# set ticker symbol argv[1] to variable s for easier usage
-s = sys.argv[1]
-
 # check to make sure only one symbol is given
-if len(sys.argv) > 2:
+elif len(sys.argv) > 2:
     print "Please just give me one ticker symbol to look up"
     print "For example,  $ ./sharevalue GOOG"
     print "Try it again."
     sys.exit(1)
 
+# set ticker symbol argv[1] to variable s for easier usage
+s = sys.argv[1]   
+    
 # check to see if arg is alphanumeric
-elif s.isalnum() == False:
+if s.isalnum() == False:
     print "Oh come on man! this isn't that hard"
     print "For example,  $ ./sharevalue GOOG"
     print "It must be alphanumeric, try again."
