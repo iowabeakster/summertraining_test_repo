@@ -22,11 +22,11 @@ class Application(Cmd):
     def do_hello(self, line):
         print "Hello:", line
 
-# sayit function prints indicated test, conveying that python does "Rock!"
+# sayit function prints indicated text, conveying that python does "Rock!"
     def do_sayit(self, line):
         print "Python Rocks!", line
 
-# home task assignment to repost to the input "greet" with "Hi, <username>"        
+# home task assignment to repond to the input "greet" with "Hi, <username>"        
     def do_greet(self, line):
         user = get_username()
         print "Hi,", user
