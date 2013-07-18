@@ -34,7 +34,9 @@ class Application(Cmd):
 # home task to provide stock quote using the requests lib        
     def do_stock(self, line):
         ticker = line
-        r = requests.get('http://download.finance.yahoo.com/d/quotes.csv?s=%s&f=l1' % ticker)
+        r = requests.get(
+        'http://download.finance.yahoo.com/d/quotes.csv?s=%s&f=l1' % ticker
+        )
         print r.text
 
         
