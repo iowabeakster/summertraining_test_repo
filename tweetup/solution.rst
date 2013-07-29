@@ -1,0 +1,69 @@
+tweetup
+=======
+
+basic functions of script
+-------------------------
+
+- take -f /path/to/image/file command line argument
+- take -t "Tweet to accompany image" command line argument
+- import necessary modules
+- make magic happen (upload image and tweet to twitter)
+
+link
+----
+`Github Link <https://github.com/iowabeakster/summertraining_test_repo/blob/master/tweetup/%20tweetup>`_
+
+
+script code
+-----------
+
+.. code:: python
+
+ #!/usr/bin/env python
+
+ import sys
+ import json
+ import os
+ import tweetpony
+ import argparse
+
+ """
+
+ Function to post image to twitter with accompanying tweeet.
+
+ Go to twitters developers page and get credentials:
+ 
+ consumer_key
+ consumer_secret
+ access_token
+ access_token_secret
+ 
+ Enter credentials in line 37
+ 
+ 
+ Usage: $ tweetup -f /path/to/image/file -t "Tweet text"
+ 
+ """
+ 
+ 
+ # create proper command args for image file (-f) and tweet(-t) 
+ def main(args):
+     parser = argparse.ArgumentParser()
+     parser.add_argument("-f", "--file", dest="file")
+     parser.add_argument("-t", "--tweet", dest="tweet")
+ # parse the args
+     args = parser.parse_args()
+ 
+ # magic function for authorizing twitter API and account        
+     api = tweetpony.API('consumer_key', 'consumer_secret', 'access_token', 'access_token_secret')
+ 
+ # function for sending the image and tweet
+     status = api.update_status_with_media(status = args.tweet, media = args.file)
+
+ 
+ if __name__ == "__main__":
+     main(sys.argv)
+
+ 
+   
+   
