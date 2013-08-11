@@ -1,0 +1,16 @@
+{% extends "master.html" %}
+ 
+{% block title %}INDEX of LOGS{% endblock %}
+ 
+{% block body %}
+<div align="center"><h2>Index of logs.  Click your favorite log.</h2></div>
+
+{% for dict in data %}
+<p><li><a href="{{ url_for('log', log = dict['date']) }}">
+    {{dict['date']}} {{dict['name']}}</a></li></p>
+{% endfor %}
+
+{% endblock %}
+
+
+
