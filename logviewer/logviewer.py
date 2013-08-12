@@ -17,7 +17,8 @@ def getlist():
         f = open(log, 'r').read()
         x = json.loads(f)
         data.append(x)
-    return data
+    sorted_list = sorted(data, key=lambda k: k['date'])
+    return sorted_list
  
 
 data  = getlist()
